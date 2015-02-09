@@ -1,4 +1,4 @@
-package colin.base;
+package colin.sort;
 
 import colin.common.StdIn;
 import colin.common.StdOut;
