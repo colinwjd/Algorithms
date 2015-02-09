@@ -1,4 +1,4 @@
-package colin.context;
+package colin.util;
 
 import colin.common.BinaryStdIn;
 import colin.common.StdOut;
