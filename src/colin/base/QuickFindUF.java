@@ -1,19 +1,18 @@
-package colin.context;
+package colin.base;
 
 import colin.common.StdIn;
 import colin.common.StdOut;
 
 /**
- *  The <tt>QuickUnionUF</tt> class represents a union-find data structure.
+ *  The <tt>QuickFindUF</tt> class represents a union-find data structure.
  *  It supports the <em>union</em> and <em>find</em> operations, along with
  *  methods for determinig whether two objects are in the same component
  *  and the total number of components.
  *  <p>
- *  This implementation uses quick union.
+ *  This implementation uses quick find.
  *  Initializing a data structure with <em>N</em> objects takes linear time.
- *  Afterwards, <em>union</em>, <em>find</em>, and <em>connected</em> take
- *  time linear time (in the worst case) and <em>count</em> takes constant
- *  time.
+ *  Afterwards, <em>find</em>, <em>connected</em>, and <em>count</em>
+ *  takes constant time but <em>union</em> takes linear time.
  *  <p>
  *  For additional documentation, see <a href="http://algs4.cs.princeton.edu/15uf">Section 1.5</a> of
  *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
@@ -21,8 +20,8 @@ import colin.common.StdOut;
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
  */
-public class QuickUnionUF {
-    private int[] id;    // id[i] = parent of i
+public class QuickFindUF {
+    private int[] id;    // id[i] = component identifier of i
     private int count;   // number of components
 
     /**
@@ -30,12 +29,11 @@ public class QuickUnionUF {
      * @throws java.lang.IllegalArgumentException if N < 0
      * @param N the number of objects
      */
-    public QuickUnionUF(int N) {
-        id = new int[N];
+    public QuickFindUF(int N) {
         count = N;
-        for (int i = 0; i < N; i++) {
+        id = new int[N];
+        for (int i = 0; i < N; i++)
             id[i] = i;
-        }
     }
 
     /**
@@ -53,23 +51,20 @@ public class QuickUnionUF {
      * @throws java.lang.IndexOutOfBoundsException unless 0 <= p < N
      */
     public int find(int p) {
-        while (p != id[p])
-            p = id[p];
-        return p;
+        return id[p];
     }
 
     /**
-     * Are the two sites <tt>p</tt> and <tt>q</tt> in the same component?
+     * Are the two sites <tt>p</tt> and <tt>q/tt> in the same component?
      * @param p the integer representing one site
      * @param q the integer representing the other site
-     * @return <tt>true</tt> if the sites <tt>p</tt> and <tt>q</tt> are in the same
-     *    component, and <tt>false</tt> otherwise
+     * @return <tt>true</tt> if the two sites <tt>p</tt> and <tt>q</tt> are in
+     *    the same component, and <tt>false</tt> otherwise
      * @throws java.lang.IndexOutOfBoundsException unless both 0 <= p < N and 0 <= q < N
      */
     public boolean connected(int p, int q) {
-        return find(p) == find(q);
+        return id[p] == id[q];
     }
-
   
     /**
      * Merges the component containing site<tt>p</tt> with the component
@@ -79,10 +74,10 @@ public class QuickUnionUF {
      * @throws java.lang.IndexOutOfBoundsException unless both 0 <= p < N and 0 <= q < N
      */
     public void union(int p, int q) {
-        int rootP = find(p);
-        int rootQ = find(q);
-        if (rootP == rootQ) return;
-        id[rootP] = rootQ; 
+        if (connected(p, q)) return;
+        int pid = id[p];
+        for (int i = 0; i < id.length; i++)
+            if (id[i] == pid) id[i] = id[q]; 
         count--;
     }
 
@@ -94,7 +89,7 @@ public class QuickUnionUF {
      */
     public static void main(String[] args) {
         int N = StdIn.readInt();
-        QuickUnionUF uf = new QuickUnionUF(N);
+        QuickFindUF uf = new QuickFindUF(N);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
@@ -104,6 +99,5 @@ public class QuickUnionUF {
         }
         StdOut.println(uf.count() + " components");
     }
-
 
 }

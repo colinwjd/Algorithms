@@ -2,8 +2,6 @@ package colin.base;
 
 import colin.common.StdIn;
 import colin.common.StdOut;
-import colin.context.QuickFindUF;
-import colin.context.QuickUnionUF;
 import colin.context.WeightedQuickUnionUF;
 
 
