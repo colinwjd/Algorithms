@@ -1,8 +1,8 @@
 package colin.util;
 
+import colin.base.Point2D;
 import colin.common.StdIn;
 import colin.common.StdOut;
-import colin.context.Point2D;
 
 /*************************************************************************
  *  Compilation:  javac FarthestPair.java

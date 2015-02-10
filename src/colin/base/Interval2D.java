@@ -3,7 +3,6 @@ package colin.base;
 import colin.common.StdDraw;
 import colin.common.StdOut;
 import colin.common.StdRandom;
-import colin.context.Point2D;
 
 /**
  *  The <tt>Interval2D</tt> class represents a closed two-dimensional interval,

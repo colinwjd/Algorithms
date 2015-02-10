@@ -1,4 +1,4 @@
-package colin.context;
+package colin.base;
 /*************************************************************************
  *  Compilation:  javac Point2D.java
  *  Execution:    java Point2D x0 y0 N

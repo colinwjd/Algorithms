@@ -26,7 +26,6 @@ import colin.base.Bag;
 import colin.base.UF;
 import colin.common.In;
 import colin.common.StdOut;
-import colin.context.PrimMST;
 
 /**
  *  The <tt>BoruvkaMST</tt> class represents a data type for computing a

@@ -1,15 +1,10 @@
-package colin.context;
+package colin.graphs;
 
 import colin.base.IndexMinPQ;
 import colin.base.Queue;
 import colin.base.UF;
 import colin.common.In;
 import colin.common.StdOut;
-import colin.graphs.BoruvkaMST;
-import colin.graphs.Edge;
-import colin.graphs.EdgeWeightedGraph;
-import colin.graphs.KruskalMST;
-import colin.graphs.LazyPrimMST;
 
 /**
  *  The <tt>PrimMST</tt> class represents a data type for computing a

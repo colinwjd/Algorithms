@@ -13,10 +13,10 @@ package colin.util;
 
 import java.util.Arrays;
 
+import colin.base.Point2D;
 import colin.base.Stack;
 import colin.common.StdIn;
 import colin.common.StdOut;
-import colin.context.Point2D;
 
 public class GrahamScan {
     private Stack<Point2D> hull = new Stack<Point2D>();

@@ -13,9 +13,9 @@ package colin.util;
 
 import java.util.Arrays;
 
+import colin.base.Point2D;
 import colin.common.StdIn;
 import colin.common.StdOut;
-import colin.context.Point2D;
 
 public class ClosestPair {
 
