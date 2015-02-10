@@ -1,8 +1,8 @@
 package colin.util;
 
+import colin.base.Alphabet;
 import colin.common.StdIn;
 import colin.common.StdOut;
-import colin.context.Alphabet;
 
 /*************************************************************************
  *  Compilation:  javac Count.java

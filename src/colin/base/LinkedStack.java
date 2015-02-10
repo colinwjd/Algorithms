@@ -19,7 +19,6 @@ import java.util.NoSuchElementException;
 
 import colin.common.StdIn;
 import colin.common.StdOut;
-import colin.context.Stack;
 
 
 /**

@@ -1,8 +1,8 @@
 package colin.graphs;
 
+import colin.base.Stack;
 import colin.common.In;
 import colin.common.StdOut;
-import colin.context.Stack;
 
 /**
  *  The <tt>DepthFirstPaths</tt> class represents a data type for finding

@@ -1,5 +1,6 @@
 package colin.context;
 
+import colin.base.StaticSETofInts;
 import colin.common.In;
 import colin.common.StdIn;
 import colin.common.StdOut;

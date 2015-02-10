@@ -22,9 +22,9 @@ package colin.graphs;
  *
  *************************************************************************/
 import colin.base.Bag;
+import colin.base.Stack;
 import colin.common.In;
 import colin.common.StdOut;
-import colin.context.Stack;
 
 /**
  *  The <tt>EdgeWeightedGraph</tt> class represents an edge-weighted

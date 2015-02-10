@@ -1,10 +1,9 @@
 package colin.graphs;
 
 import colin.base.Queue;
+import colin.base.Stack;
 import colin.common.In;
 import colin.common.StdOut;
-import colin.context.DirectedEdge;
-import colin.context.Stack;
 
 /**
  *  The <tt>DepthFirstOrder</tt> class represents a data type for 

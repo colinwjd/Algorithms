@@ -1,8 +1,8 @@
 package colin.graphs;
 
+import colin.base.Stack;
 import colin.common.StdOut;
 import colin.common.StdRandom;
-import colin.context.Stack;
 
 
 /**

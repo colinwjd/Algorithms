@@ -1,10 +1,8 @@
 package colin.graphs;
 
+import colin.base.Stack;
 import colin.common.StdOut;
 import colin.common.StdRandom;
-import colin.context.DirectedEdge;
-import colin.context.Stack;
-import colin.context.Topological;
 
 /**
  *  The <tt>EdgeWeightedDirectedCycle</tt> class represents a data type for 

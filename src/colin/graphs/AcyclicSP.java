@@ -1,9 +1,7 @@
 package colin.graphs;
+import colin.base.Stack;
 import colin.common.In;
 import colin.common.StdOut;
-import colin.context.DirectedEdge;
-import colin.context.Stack;
-import colin.context.Topological;
 
 /*************************************************************************
  *  Compilation:  javac AcyclicSP.java

@@ -2,6 +2,7 @@ package colin.context;
 
 import colin.common.In;
 import colin.common.StdOut;
+import colin.strings.SuffixArray;
 
 /*************************************************************************
  *  Compilation:  javac LongestCommonSubstring.java

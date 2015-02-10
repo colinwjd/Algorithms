@@ -30,9 +30,9 @@ import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 
 import colin.base.Bag;
+import colin.base.Stack;
 import colin.common.In;
 import colin.common.StdOut;
-import colin.context.Stack;
 
 /**
  *  The <tt>Digraph</tt> class represents a directed graph of vertices

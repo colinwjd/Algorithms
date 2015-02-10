@@ -2,7 +2,6 @@ package colin.base;
 
 import colin.common.In;
 import colin.common.StdOut;
-import colin.context.Stack;
 import colin.graphs.Graph;
 
 /**

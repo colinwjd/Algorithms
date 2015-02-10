@@ -1,10 +1,10 @@
 package colin.util;
 
 import colin.base.MinPQ;
+import colin.base.Stack;
+import colin.base.Transaction;
 import colin.common.StdIn;
 import colin.common.StdOut;
-import colin.context.Stack;
-import colin.context.Transaction;
 
 /**
  *  The <tt>TopM</tt> class provides a client that reads a sequence of

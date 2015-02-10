@@ -13,7 +13,6 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import colin.common.StdOut;
-import colin.context.DirectedEdge;
 
 /**
  *  The <tt>AdjMatrixEdgeWeightedDigraph</tt> class represents a edge-weighted

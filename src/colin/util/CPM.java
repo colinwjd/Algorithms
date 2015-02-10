@@ -1,8 +1,8 @@
 package colin.util;
 import colin.common.StdIn;
 import colin.common.StdOut;
-import colin.context.DirectedEdge;
 import colin.graphs.AcyclicLP;
+import colin.graphs.DirectedEdge;
 import colin.graphs.EdgeWeightedDigraph;
 
 /*************************************************************************

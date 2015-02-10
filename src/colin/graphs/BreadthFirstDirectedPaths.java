@@ -1,9 +1,9 @@
 package colin.graphs;
 
 import colin.base.Queue;
+import colin.base.Stack;
 import colin.common.In;
 import colin.common.StdOut;
-import colin.context.Stack;
 
 /**
  *  The <tt>BreadthDirectedFirstPaths</tt> class represents a data type for finding
