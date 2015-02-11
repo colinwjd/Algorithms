@@ -1,7 +1,7 @@
 package colin.sort;
 
 /**
- * 插入排序
+ * 选择排序
  * 
  * @author ColinWang{wjdwjd@mail.com}
  * @date Feb 11, 2015
