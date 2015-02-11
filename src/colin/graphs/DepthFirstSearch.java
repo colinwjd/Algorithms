@@ -1,5 +1,6 @@
 package colin.graphs;
 
+import colin.base.Graph;
 import colin.common.In;
 import colin.common.StdOut;
 

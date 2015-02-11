@@ -1,4 +1,4 @@
-package colin.graphs;
+package colin.base;
 
 /*************************************************************************
  *  Compilation:  javac Graph.java        
@@ -33,8 +33,6 @@ package colin.graphs;
  *  ...
  *  
  *************************************************************************/
-import colin.base.Bag;
-import colin.base.Stack;
 import colin.common.In;
 import colin.common.StdOut;
 

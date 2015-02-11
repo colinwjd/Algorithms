@@ -1,9 +1,9 @@
 package colin.util;
 
+import colin.base.Graph;
 import colin.common.StdIn;
 import colin.common.StdOut;
 import colin.graphs.BreadthFirstPaths;
-import colin.graphs.Graph;
 import colin.graphs.SymbolGraph;
 
 /**
