@@ -1,5 +1,11 @@
 package colin.sort;
 
+/**
+ * 排序算法需要的工具函数
+ * 
+ * @author ColinWang{wjdwjd@mail.com}
+ * @date Feb 11, 2015
+ */
 public class SortUtil {
 
 	private SortUtil() {
