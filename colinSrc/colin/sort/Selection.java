@@ -24,7 +24,6 @@ public class Selection {
 			}
 			SortUtil.swap(a, i, minIndex);
 		}
-		assert SortUtil.isSorted(a);
 	}
 
 }
