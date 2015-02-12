@@ -11,7 +11,7 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 	private Key[] keys;
 	private int size;
 
-	// 保留位置0不使用
+	// 默认初始容量为10，保留位置0不使用
 	private static final int INIT_CAPACITY = 11;
 
 	public MaxPriorityQueue() {
@@ -86,11 +86,10 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 
 	// 由下至上的堆有序化（大元素上浮）
 	private void swim(int k) {
-		int parent = k >> 1;
-		while (k > 1 && less(parent, k)) {
+		while (k > 1 && less(k / 2, k)) {
 			// 该元素比父元素大，则交换
-			swap(parent, k);
-			k = parent;
+			swap(k / 2, k);
+			k = k / 2;
 		}
 	}
 
