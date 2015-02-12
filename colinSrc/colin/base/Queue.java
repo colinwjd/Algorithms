@@ -3,7 +3,7 @@ package colin.base;
 import java.util.Iterator;
 
 /**
- * 基于先入先出策略的集合类型
+ * 基于先入先出策略的集合类型，链表实现
  * 
  * @author ColinWang{wjdwjd@mail.com}
  * @date Feb 11, 2015
