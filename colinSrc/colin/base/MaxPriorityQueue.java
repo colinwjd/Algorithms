@@ -24,14 +24,22 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public MaxPriorityQueue(Key[] a) {
-		int size = a.length;
-		keys = (Key[]) new Comparable[size + 1];
-		
+	public MaxPriorityQueue(Key[] keys) {
+		int size = keys.length;
+		this.keys = (Key[]) new Comparable[size + 1];
+		for (int i = 0; i < size; i++) {
+			this.keys[i + 1] = keys[i];
+		}
+		// 从后向前用sink()方法构造堆，数组的每个位置都可以看做是一个子堆的跟节点
+		// 如果一个节点的两个子节点都已经是堆了，则在这个节点上调用sink()方法
+		// 可将它们变成一个堆
+		for (int i = size / 2; i > 0; i--) {
+			sink(i);
+		}
 	}
 
 	public void insert(Key key) {
-		if (size == keys.length -1) {
+		if (size == keys.length - 1) {
 			int newSize = keys.length << 1;
 			resize(newSize);
 		}
@@ -39,11 +47,11 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 		keys[++size] = key;
 		swim(size);
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	private void resize(int newSize){
-		Key[] newKeys = (Key[]) new Comparable[newSize+1];
-		for (int i = 1; i <= size; i++){
+	private void resize(int newSize) {
+		Key[] newKeys = (Key[]) new Comparable[newSize + 1];
+		for (int i = 1; i <= size; i++) {
 			newKeys[i] = keys[i];
 		}
 		keys = newKeys;
@@ -60,14 +68,14 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 		keys[size] = null;
 		size--;
 		sink(1);
-		
+
 		if (size > 0 && size << 2 <= keys.length - 1) {
 			int newSize = keys.length >> 1;
 			resize(newSize);
 		}
 		return max;
 	}
-	
+
 	public boolean isEmpty() {
 		return size == 0;
 	}
@@ -88,9 +96,8 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 
 	// 由上至下的堆有序化（小元素下沉）
 	private void sink(int k) {
-		// 孩子指针指向左孩子
-		int child = k << 1;
-		while (child <= size) {
+		while (2 * k <= size) {
+			int child = 2 * k;
 			if (child < size && less(child, child + 1)) {
 				// 右孩子比左孩子大时，孩子指针指向大者（右孩子）
 				child++;
