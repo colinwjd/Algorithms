@@ -1,7 +1,7 @@
 package colin.base;
 
 /**
- * 小值优先队列，基于数组实现（定容队列，可用于大量数据求TopM）
+ * 小值优先队列，基于数组实现（可用于大量数据求TopM）
  * 
  * @author ColinWang{wjdwjd@mail.com}
  * @date Feb 12, 2015
@@ -30,8 +30,21 @@ public class MinPriorityQueue<Key extends Comparable<Key>> {
 	}
 
 	public void insert(Key key) {
+		if (size == keys.length) {
+			int newSize = keys.length * 2; // or keys.length << 1;
+			resize(newSize);
+		}
 		keys[++size] = key;
 		swim(size);
+	}
+
+	@SuppressWarnings("unchecked")
+	private void resize(int newSize) {
+		Key[] newKeys = (Key[]) new Comparable[newSize];
+		for (int i = 1; i <= size; i++) {
+			newKeys[i] = keys[i];
+		}
+		keys = newKeys;
 	}
 
 	public Key min() {
@@ -44,6 +57,10 @@ public class MinPriorityQueue<Key extends Comparable<Key>> {
 		keys[size] = null;
 		size--;
 		sink(1);
+		if (size > 0 && size * 4 <= keys.length - 1) {
+			int newSize = keys.length / 2;
+			resize(newSize);
+		}
 		return min;
 	}
 
