@@ -1393,7 +1393,7 @@ public final class StdDraw implements ActionListener, MouseListener,
 
 		StdDraw.setPenColor(StdDraw.BOOK_RED);
 		StdDraw.setPenRadius(.02);
-		StdDraw.arc(.8, .2, .1, 200, 45);
+		StdDraw.arc(.8, .2, .1, 200, 10);
 
 		// draw a blue diamond
 		StdDraw.setPenRadius();
