@@ -56,6 +56,11 @@ public class SortCompare {
 		return total;
 	}
 
+	/**
+	 * 命令行参数：Insertion Selection 1000 100 分别为：排序算法一、排序算法二、排序数组长度、排序数组个数
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		String alg1 = args[0];
 		String alg2 = args[1];
@@ -65,7 +70,7 @@ public class SortCompare {
 		double time2 = timeRandomInput(alg2, size, count);
 
 		System.out.println("For " + size + "random Doubles:");
-		System.out
-				.println(alg1 + " is " + time2 / time1 + " times faster than " + alg2);
+		System.out.println(alg1 + " is " + time2 / time1
+				+ " times faster than " + alg2);
 	}
 }
