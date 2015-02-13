@@ -1,5 +1,8 @@
 package colin.sort;
 
+import colin.common.StdRandom;
+import colin.common.StopWatch;
+
 /**
  * 比较两种排序算法的性能
  * 

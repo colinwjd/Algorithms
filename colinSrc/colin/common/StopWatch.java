@@ -1,4 +1,4 @@
-package colin.sort;
+package colin.common;
 
 /**
  * 一种计时器（停表）

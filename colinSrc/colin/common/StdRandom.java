@@ -1,4 +1,4 @@
-package colin.sort;
+package colin.common;
 
 import java.util.Random;
 
