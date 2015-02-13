@@ -1,5 +1,7 @@
 package colin.sort;
 
+import colin.common.StdIn;
+
 /**
  * 快速排序
  * 
@@ -60,5 +62,11 @@ public class Quick {
 		// 将key放入正确的位置
 		SortUtil.swap(a, low, right);
 		return right;
+	}
+
+	public static void main(String[] args) {
+		String[] data = StdIn.readAllStrings();
+		Heap.sort(data);
+		SortUtil.show(data);
 	}
 }

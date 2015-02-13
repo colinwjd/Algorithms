@@ -1,5 +1,7 @@
 package colin.sort;
 
+import colin.common.StdIn;
+
 /**
  * 归并排序（自顶向下）
  * 
@@ -61,5 +63,11 @@ public class Merge {
 				a[k] = aux[right++];
 			}
 		}
+	}
+
+	public static void main(String[] args) {
+		String[] data = StdIn.readAllStrings();
+		Heap.sort(data);
+		SortUtil.show(data);
 	}
 }

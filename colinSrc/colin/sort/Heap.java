@@ -1,5 +1,7 @@
 package colin.sort;
 
+import colin.common.StdIn;
+
 /**
  * 堆排序
  * 
@@ -43,5 +45,11 @@ public class Heap {
 			SortUtil.swap(a, k - 1, child - 1);
 			k = child;
 		}
+	}
+	
+	public static void main(String[] args) {
+		String[] data = StdIn.readAllStrings();
+		Heap.sort(data);
+		SortUtil.show(data);
 	}
 }

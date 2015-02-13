@@ -1,5 +1,7 @@
 package colin.sort;
 
+import colin.common.StdIn;
+
 /**
  * 希尔排序
  * 
@@ -35,5 +37,11 @@ public class Shell {
 			// 将h缩小，插入排序对局部有序的小数组效率很高
 			h = h / 3;
 		}
+	}
+
+	public static void main(String[] args) {
+		String[] data = StdIn.readAllStrings();
+		Heap.sort(data);
+		SortUtil.show(data);
 	}
 }

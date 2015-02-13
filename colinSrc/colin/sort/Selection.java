@@ -1,5 +1,7 @@
 package colin.sort;
 
+import colin.common.StdIn;
+
 /**
  * 选择排序
  * 
@@ -24,6 +26,12 @@ public class Selection {
 			}
 			SortUtil.swap(a, i, minIndex);
 		}
+	}
+
+	public static void main(String[] args) {
+		String[] data = StdIn.readAllStrings();
+		Heap.sort(data);
+		SortUtil.show(data);
 	}
 
 }
