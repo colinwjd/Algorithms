@@ -1,4 +1,6 @@
-package colin.base;
+package colin.search;
+
+import colin.base.Queue;
 
 /**
  * 基于两个平行数组实现的有序符号表
