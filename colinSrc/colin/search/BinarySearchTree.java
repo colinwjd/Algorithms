@@ -78,4 +78,79 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 		root.count = size(root.left) + size(root.right) + 1;
 		return root;
 	}
+
+	public Key min() {
+		return min(root).key;
+	}
+
+	private Node min(Node root) {
+		if (root.left == null) {
+			return root;
+		} else {
+			return min(root.left);
+		}
+	}
+
+	/**
+	 * 向下取整，返回小于该键的最大键
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public Key floor(Key key) {
+		Node temp = floor(root, key);
+		if (temp == null)
+			return null;
+		return temp.key;
+	}
+
+	private Node floor(Node root, Key key) {
+		if (root == null)
+			return null;
+		int cmp = key.compareTo(root.key);
+		if (cmp == 0)
+			return root;
+		if (cmp < 0)
+			return floor(root.left, key);
+		Node temp = floor(root.right, key);
+		if (temp != null)
+			return temp;
+		else
+			return root;
+	}
+
+	public Key select(int k) {
+		return select(root, k).key;
+	}
+
+	private Node select(Node root, int k) {
+		if (root == null)
+			return null;
+		// 左子树的大小
+		int t = size(root.left);
+		if (t > k)
+			// 左子树比给出的排名大，即给出的排名（从0计数）包含在左子树中
+			return select(root.left, k);
+		else if (t < k)
+			return select(root.right, k);
+		else
+			return root;
+	}
+
+	public int rank(Key key) {
+		return rank(root, key);
+	}
+
+	private int rank(Node root, Key key) {
+		// 计算root中key的排名，从0计数
+		if (root == null)
+			return 0;
+		int cmp = key.compareTo(root.key);
+		if (cmp < 0)
+			return rank(root.left, key);
+		else if (cmp > 0)
+			return rank(root.right, key) + size(root.left) + 1;
+		else
+			return size(root.left);
+	}
 }
