@@ -132,7 +132,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 			// 左子树比给出的排名大，即给出的排名（从0计数）包含在左子树中
 			return select(root.left, k);
 		else if (t < k)
-			return select(root.right, k);
+			return select(root.right, k - t - 1);
 		else
 			return root;
 	}
