@@ -1,5 +1,7 @@
 package colin.search;
 
+import colin.base.Queue;
+
 /**
  * 基于二叉查找树的符号表（递归实现）
  * 
@@ -192,5 +194,39 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 		}
 		root.count = size(root.left) + size(root.right) + 1;
 		return root;
+	}
+
+	public Key max() {
+		return max(root).key;
+	}
+
+	private Node max(Node root) {
+		if (root == null)
+			return root;
+		else
+			return max(root.right);
+	}
+
+	public Iterable<Key> keys() {
+		return keys(min(), max());
+	}
+
+	private Iterable<Key> keys(Key min, Key max) {
+		Queue<Key> queue = new Queue<>();
+		keys(root, queue, min, max);
+		return queue;
+	}
+
+	private void keys(Node root, Queue<Key> queue, Key min, Key max) {
+		if (root == null)
+			return;
+		int cmpMin = min.compareTo(root.key);
+		int cmpMax = max.compareTo(root.key);
+		if (cmpMin < 0)
+			keys(root.left, queue, min, max);
+		if (cmpMax > 0)
+			keys(root.right, queue, min, max);
+		if (cmpMin <= 0 && cmpMax >= 0)
+			queue.enqueue(root.key);
 	}
 }
