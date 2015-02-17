@@ -153,4 +153,44 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 		else
 			return size(root.left);
 	}
+
+	public void deleteMin() {
+		root = deleteMin(root);
+	}
+
+	private Node deleteMin(Node root) {
+		if (root.left == null)
+			return root.right;
+		root.left = deleteMin(root.left);
+		root.count = size(root.left) + size(root.right) + 1;
+		return root;
+	}
+
+	public void delete(Key key) {
+		root = delete(root, key);
+	}
+
+	// 二叉查找树中节点的即使删除
+	private Node delete(Node root, Key key) {
+		if (root == null)
+			return null;
+		int cmp = key.compareTo(root.key);
+		if (cmp < 0)
+			root.left = delete(root.left, key);
+		else if (cmp > 0)
+			root.right = delete(root.right, key);
+		else {
+			if (root.left == null)
+				return root.right;
+			if (root.right == null)
+				return root.left;
+
+			Node temp = root;
+			root = min(temp.right);
+			root.right = deleteMin(temp.right);
+			root.left = temp.left;
+		}
+		root.count = size(root.left) + size(root.right) + 1;
+		return root;
+	}
 }
