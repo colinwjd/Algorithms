@@ -201,7 +201,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 	}
 
 	private Node max(Node root) {
-		if (root == null)
+		if (root.right == null)
 			return root;
 		else
 			return max(root.right);
