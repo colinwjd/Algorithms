@@ -120,15 +120,15 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 		if (isRed(h.left) && isRed(h.right))
 			// 如果两条子链接都是红色的，则进行颜色变换
 			flipColors(h);
-		
+
 		h.size = size(h.left) + size(h.right) + 1;
 		return h;
 	}
-	
+
 	public Value get(Key key) {
 		return get(root, key);
 	}
-	
+
 	private Value get(Node x, Key key) {
 		if (x == null)
 			return null;
@@ -139,5 +139,98 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 			return get(x.right, key);
 		else
 			return x.value;
+	}
+
+	public boolean isEmpty() {
+		return size() == 0;
+	}
+
+	public void deleteMin() {
+		if (!isRed(root.left) && !isRed(root.right))
+			root.color = RED;
+		root = deleteMin(root);
+		if (!isEmpty())
+			root.color = BLACK;
+	}
+
+	private Node deleteMin(Node h) {
+		if (h.left == null)
+			return null;
+		if (!isRed(h.left) && !isRed(h.left.left))
+			h = moveRedLeft(h);
+		h.left = deleteMin(h.left);
+		return balance(h);
+	}
+
+	private Node moveRedLeft(Node h) {
+		// 假设h结点为红色，h.left和h.left.left都是黑色
+		// 将h.left或者h.left的子结点之一变红
+		flipColors(h);
+		if (isRed(h.right.left)) {
+			h.right = rotateRight(h.right);
+			h = rotateLeft(h);
+		}
+		return h;
+	}
+
+	private Node balance(Node h) {
+		if (isRed(h.right))
+			h = rotateLeft(h);
+
+		if (isRed(h.right) && !isRed(h.left))
+			// 如果右链接是红色的，左链接是黑色的，则左旋
+			h = rotateLeft(h);
+		if (isRed(h.left) && isRed(h.left.left))
+			// 如果左链接是红色，并且左结点的左链接也是红色（连续红链接），则右旋
+			h = rotateRight(h);
+		if (isRed(h.left) && isRed(h.right))
+			// 如果两条子链接都是红色的，则进行颜色变换
+			flipColors(h);
+
+		h.size = size(h.left) + size(h.right) + 1;
+		return h;
+	}
+
+	public void delete(Key key) {
+		if (!isRed(root.left) && !isRed(root.right))
+			root.color = RED;
+		root = delete(root, key);
+		if (!isEmpty())
+			root.color = BLACK;
+	}
+
+	private Node delete(Node h, Key key) {
+		if (key.compareTo(h.key) < 0) {
+			if (!isRed(h.left) && !isRed(h.left.left))
+				h = moveRedLeft(h);
+			h.left = delete(h.left, key);
+		} else {
+			if (isRed(h.left))
+				h = rotateRight(h);
+			if (key.compareTo(h.key) == 0 && h.right == null)
+				return null;
+			if (!isRed(h.right) && !isRed(h.right.left))
+				h = moveRedLeft(h);
+			if (key.compareTo(h.key) == 0) {
+				h.value = get(h.right, min(h.right).key);
+				h.key = min(h.right).key;
+				h.right = delete(h.right, key);
+			} else {
+				h.right = delete(h.right, key);
+			}
+		}
+		return balance(h);
+	}
+
+	public Key min() {
+		return min(root).key;
+	}
+
+	private Node min(Node root) {
+		if (root.left == null) {
+			return root;
+		} else {
+			return min(root.left);
+		}
 	}
 }
