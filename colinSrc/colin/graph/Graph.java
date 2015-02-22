@@ -5,7 +5,7 @@ import colin.base.Bag;
 import colin.common.In;
 
 /**
- * 图的表示，邻接表表示法
+ * 无向图的表示，邻接表表示法
  * 
  * @author ColinWang{wjdwjd@live.cn}
  * @date Feb 21, 2015
