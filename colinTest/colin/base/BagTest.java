@@ -2,13 +2,20 @@ package colin.base;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class BagTest {
 
+	Bag<Integer> bag;
+	
+	@Before
+	public void setup(){
+		bag = new Bag<>();
+	}
+	
 	@Test
 	public void testAdd() {
-		Bag<Integer> bag = new Bag<>();
 		bag.add(1);
 		bag.add(2);
 		assertTrue(bag.size() == 2);
@@ -16,13 +23,11 @@ public class BagTest {
 
 	@Test
 	public void testIsEmpty() {
-		Bag<Integer> bag = new Bag<>();
 		assertTrue(bag.isEmpty());
 	}
 
 	@Test
 	public void testSize() {
-		Bag<Integer> bag = new Bag<>();
 		bag.add(1);
 		bag.add(2);
 		assertTrue(bag.size() == 2);
@@ -30,7 +35,6 @@ public class BagTest {
 
 	@Test
 	public void testIterator() {
-		Bag<Integer> bag = new Bag<>();
 		bag.add(1);
 		bag.add(2);
 		bag.add(4);
