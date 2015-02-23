@@ -81,7 +81,7 @@ public class Queue<E> implements Iterable<E> {
 
 		@Override
 		public boolean hasNext() {
-			return current.next != null;
+			return current != null;
 		}
 
 		@Override

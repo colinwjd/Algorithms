@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class BagTest {
 
-	Bag<Integer> bag;
+	private Bag<Integer> bag;
 	
 	@Before
 	public void setup(){
